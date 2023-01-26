@@ -40,7 +40,7 @@
               <li><a class="dropdown-item" href="#">Nombre</a></li>
               <li><a class="dropdown-item" href="#">Categoria</a></li>
               <li><a class="dropdown-item" href="#">Puntuacion</a></li>
-              
+
             </ul>
           </div>
 
@@ -58,7 +58,9 @@
       <!-- ACCORDION -->
       <div id="acordeon" class="w-100 d-flex flex-column align-items-center rounded-5 p-4 text-center shadow-3-strong rounded mt-5 text-wihte">
         <!-- ITEM -->
-        <?php foreach ($res as $i) {
+        <?php
+        $num = "One";
+        foreach ($res as $i) {
           echo "<div class='accordion accordion-flush w-100'>
           <div class='accordion-item w-100'>
             
@@ -77,7 +79,45 @@
             <div id='flush-collapseOne' class='accordion-collapse collapse w-100' aria-labelledby='flush-headingOne' data-mdb-parent='#accordionFlushExample'>
               <div class='accordion-body d-flex mt-5'>
                 <div class='w-50'>
-                  <img src='../admin/img/img_item/" . $i->getId() . "/" . $i->getImg1() . "' alt='' class='w-100'>
+                <div id='carouselMaterialStyle' class='carousel slide carousel-fade' data-mdb-ride='carousel'>
+
+              <div class='carousel-indicators'>
+                <button type='button' data-mdb-target='#carouselMaterialStyle' data-mdb-slide-to='0' class='active' aria-current='true' aria-label='Slide 1'></button>
+                <button type='button' data-mdb-target='#carouselMaterialStyle' data-mdb-slide-to='1' aria-label='Slide 2'></button>
+                <button type='button' data-mdb-target='#carouselMaterialStyle' data-mdb-slide-to='2' aria-label='Slide 3'></button>
+              </div>
+
+
+              <div class='carousel-inner rounded-5 shadow-4-strong'>
+
+                <div class='carousel-item active'>
+                <img src='../admin/img/img_item/" . $i->getId() . "/" . $i->getImg1() . "' alt='' class='w-100'>
+                  
+                </div>
+
+
+                <div class='carousel-item'>
+                <img src='../admin/img/img_item/" . $i->getId() . "/" . $i->getImg2() . "' alt='' class='w-100'>
+                  
+                </div>
+
+
+                <div class='carousel-item'>
+                <img src='../admin/img/img_item/" . $i->getId() . "/" . $i->getImg3() . "' alt='' class='w-100'>
+                  
+                </div>
+              </div>
+
+              <button class='carousel-control-prev' type='button' data-mdb-target='#carouselMaterialStyle' data-mdb-slide='prev'>
+                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                <span class='visually-hidden'>Previous</span>
+              </button>
+              <button class='carousel-control-next' type='button' data-mdb-target='#carouselMaterialStyle' data-mdb-slide='next'>
+                <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                <span class='visually-hidden'>Next</span>
+              </button>
+            </div>
+                  
                 </div>
                 <div class='w-50'>
                 " .
@@ -86,8 +126,8 @@
                 </div>
                 <div class='w-50'>
                 " .
-            $i->getDescripcion() ." ".
-            $i->getPrecio() ."€"
+            $i->getDescripcion() . " " .
+            $i->getPrecio() . "€"
             . "
                 </div>
               </div>

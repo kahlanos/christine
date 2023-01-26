@@ -38,6 +38,7 @@ class Db {
 
             $con = new Conexion();
             $db = $con->getConexion();
+            
 
             $sql = "SELECT * FROM item ORDER BY puntuacion LIMIT 12";
             $res = $db->query($sql);

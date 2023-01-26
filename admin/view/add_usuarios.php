@@ -88,7 +88,7 @@
                     <form action="add/process" method="POST" onsubmit="return valida(this)">
                         <div class="mb-3">
                             <label for="user" class="form-label">User</label>
-                            <input name="user" type="email" class="form-control" id="user" value="" required>                           
+                            <input name="user" type="email" class="form-control" id="user" value="" onkeypress ="return limitaCorreo(event)" required>                           
                         </div>
                         <div class="mb-3">
                             <label for="passw" class="form-label">Password</label>
@@ -96,11 +96,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" id="nombre" value="" >
+                            <input name="nombre" type="text" class="form-control" id="nombre" onkeypress="return limitaTexto(event)" value="" >
                         </div>
                         <div class="mb-3">
                             <label for="apellido" class="form-label">Apellido</label>
-                            <input name="apellido" type="text" class="form-control" id="apellido" value="">
+                            <input name="apellido" type="text" class="form-control" id="apellido" value="" onkeypress="return limitaTexto(event)">
                         </div>
                         <div class="mb-3 form-check form-switch">
                             <label for="admin" class="form-label">Admin</label>
@@ -115,6 +115,7 @@
                         <a class="btn btn-outline-primary m-2" href="../usuarios" role="button">Cancelar</a>                       
                     </form>
                 </div>
+                <div id="alertas"></div>
             </div>
 
 

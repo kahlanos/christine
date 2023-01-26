@@ -78,14 +78,14 @@
                 <div class="bg-secondary rounded h-100 p-4 m-4">
                     <h6 class="mb-4">Edición de Item</h6>
                     
-                    <form action= "<?php echo $id?>/process" method="POST" enctype="multipart/form-data">
+                    <form action= "<?php echo $id?>/process" method="POST" enctype="multipart/form-data" novalidate>
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" id="nombre" value="<?php echo $res->getNombre()?>">                           
+                            <input name="nombre" type="text" class="form-control" id="nombre" value="<?php echo $res->getNombre()?>" onkeypress="return limitaTexto(event)" required>                           
                         </div>
                         <div class="mb-3">
                             <label for="descripcion" class="form-label">Descripcion</label>
-                            <input name="descripcion" type="text" class="form-control" id="descripcion" value="<?php echo $res->getDescripcion()?>">                           
+                            <input name="descripcion" type="text" class="form-control" id="descripcion" value="<?php echo $res->getDescripcion()?>" required>                           
                         </div>
                         <div class="mb-3">
                             <label for="categoria" class="form-label">Categoría</label>

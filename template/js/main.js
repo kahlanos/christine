@@ -99,7 +99,7 @@ function elementSpiner(datos) {
     return conten;
 }
 
-function cargaItemsAll() {
+function cargaItemsAll($q = '') {
     var urlBase = "http://localhost/christine/index.php/";
     var accion = "cargaItemsAll";
 
@@ -138,3 +138,4 @@ function elementAcordeon() {
     
 
 }
+

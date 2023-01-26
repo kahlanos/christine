@@ -1,9 +1,14 @@
 
-function valida(e) {
+function validaUsuario(e) {
 
-    var inputs = document.getElementsByTagName("input");
+    var user = document.getElementById("user");
+    var passw = document.getElementById("passw");
+    var nombre = document.getElementById("passw");
+    var apellido = document.getElementById("passw");
 
-
+    if (!correo(user)) {
+        return false;
+    } 
 }
 
 function focoFuera(e) {
@@ -30,23 +35,44 @@ function focoFuera(e) {
 
 function texto(elems) {
 
-    for (let i = 0; i < elems.length; i++) {
+    
          
-            if (!(/^[a-zA-Z0-9]*$/i.test(elems[i].value))) {
-            // document.getElementById("alertas").innerHTML += "<br>Nombre obligatorio y solo texto";
-            return false;
+        if (!(/^[a-zA-Z0-9]*$/i.test(elems.value))) {
+        document.getElementById("alertas").innerHTML += "<br>Nombre obligatorio y solo texto";
+        return false;
             
-        }        
-    }
+               
+        }
     return true;
 }
 
 function correo(elems) {
     for (let i = 0; i < elems.length; i++) {
         if( !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(elems[i].value)) ) {
-            // document.getElementById("alertas").innerHTML += "<br>Correo obligatorio y formato: ejemplo@ejemplo.com";
+            document.getElementById("alertas").innerHTML += "<br>Correo obligatorio y formato: ejemplo@ejemplo.com";
             return false;
           }
     }
     return true;
+}
+
+function limitaTexto(evento) {
+    let tecla = evento.keyCode;
+
+    if (tecla >= 48 && tecla <= 90) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function limitaCorreo(evento) {
+    let tecla = evento.keyCode;
+
+    if (tecla == 219 || tecla == 221 || tecla == 186 || tecla == 226 || tecla == 190 || 
+        tecla == 222 || tecla == 219 || tecla == 191 || tecla == 32) {
+        return false;
+    } else {
+        return true;
+    }
 }
