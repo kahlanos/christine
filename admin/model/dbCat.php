@@ -1,7 +1,12 @@
 <?php 
 
 class DbCat {
-
+    
+    /**
+     * getCategorias
+     *
+     * @return void
+     */
     public function getCategorias() {
 
         try {
@@ -41,7 +46,12 @@ class DbCat {
 
         return json_encode($cats);
     }
-
+    
+    /**
+     * getCategoriasNombre
+     *
+     * @return void
+     */
     public function getCategoriasNombre() {
          try {
 
@@ -67,7 +77,13 @@ class DbCat {
 
         return json_encode($cats);
     }
-
+    
+    /**
+     * getCategoriaById
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function getCategoriaById($id) {
 
         try {
@@ -97,7 +113,17 @@ class DbCat {
 
         return $cat;
     }
-
+    
+    /**
+     * editCategoria
+     *
+     * @param  mixed $id
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $imagen
+     * @param  mixed $padre
+     * @return void
+     */
     public function editCategoria($id, $nombre, $descripcion, $imagen, $padre) {
         
         try {
@@ -125,7 +151,13 @@ class DbCat {
             echo "Error: " . $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteCategoria
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function deleteCategoria($id) {
 
         try {
@@ -141,7 +173,16 @@ class DbCat {
             echo "Error: " . $e->getMessage();
         }
     }
-
+    
+    /**
+     * addCategoria
+     *
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $imagen
+     * @param  mixed $padre
+     * @return void
+     */
     public function addCategoria($nombre, $descripcion, $imagen, $padre) {
 
         try {

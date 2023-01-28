@@ -1,6 +1,5 @@
 <?php
-function control() {
-    session_start();
+function control() {   
     if (isset($_SESSION["user"])) {
         return true;
     } else {

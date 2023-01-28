@@ -29,28 +29,34 @@
     <div class="col-12 row m-5">
       <div class="w-50">
       <h1 class="text-white py-4">CREAR CUENTA</h1>
-      <form>
+
+      <form action= "signin/process" method="POST" enctype="multipart/form-data">
 
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text" id="form6Example3" class="form-control" />
-          <label class="form-label text-white-50" for="form6Example3">Nombre</label>
+          <input name="user" type="email" id="user" class="form-control text-white-50" required/>
+          <label class="form-label text-white-50" for="user">Usuario</label>
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="form6Example5" class="form-control" />
-          <label class="form-label text-white-50" for="form6Example5">Email</label>
+          <input name="passw" type="password" id="passw" class="form-control text-white-50" required/>
+          <label class="form-label text-white-50" for="passw">Contraseña</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="text" id="form6Example4" class="form-control" />
-          <label class="form-label text-white-50" for="form6Example4">Contraseña</label>
+          <input name="nombre" type="text" id="nombre" class="form-control text-white-50" />
+          <label class="form-label text-white-50" for="nombre">Nombre</label>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input name="apellido" type="text" id="apellido" class="form-control text-white-50" />
+          <label class="form-label text-white-50" for="apellido">Apellido</label>
         </div>
 
         <!-- Crear cuenta button -->
-        <button type="button" class="btn btn-primary btn-rounded" id="boton">Crear cuenta</button>
+        <button type="submit" class="btn btn-primary btn-rounded" id="boton">Crear cuenta</button>
       </form>
       </div>
       

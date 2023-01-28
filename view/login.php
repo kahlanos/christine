@@ -29,23 +29,23 @@
     <div class="col-12 row m-5">
       <div class="w-50">
       <h1 class="text-white py-4">INICIAR SESIÓN</h1>
-      <form>
+      <form action= "login/process" method="POST" enctype="multipart/form-data">
 
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="form6Example5" class="form-control" />
-          <label class="form-label text-white-50" for="form6Example5">Email</label>
+          <input name="user" type="email" id="user" class="form-control text-white-50" />
+          <label class="form-label text-white-50" for="user">Usuario</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="text" id="form6Example4" class="form-control" />
-          <label class="form-label text-white-50" for="form6Example4">Contraseña</label>
+          <input name="passw" type="password" id="passw" class="form-control text-white-50" />
+          <label class="form-label text-white-50" for="passw">Contraseña</label>
         </div>
 
         <!-- Crear cuenta button -->
-        <button type="button" class="btn btn-primary btn-rounded me-4" id="boton">Iniciar</button>
-        <button type="button" class="btn btn-primary btn-rounded" id="boton">Cancelar</button>
+        <button type="submit" class="btn btn-primary btn-rounded me-4" id="boton">Iniciar</button>
+        <button type="button" class="btn btn-secondary btn-rounded">Cancelar</button>
       </form>
       </div>
       

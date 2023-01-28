@@ -1,7 +1,12 @@
 <?php
 
 class Db {
-
+    
+    /**
+     * getSpinerHome
+     *
+     * @return void
+     */
     public function getSpinerHome() {
 
         try {
@@ -30,7 +35,12 @@ class Db {
         return json_encode($items);
 
     }
-
+    
+    /**
+     * getItemsAll
+     *
+     * @return void
+     */
     public function getItemsAll() {
         try {
 
@@ -73,4 +83,93 @@ class Db {
 
         return $items;
     }
+    
+    /**
+     * getUser
+     *
+     * @param  mixed $user
+     * @param  mixed $passw
+     * @return void
+     */
+    public function getUser($user, $passw) {
+        try {
+
+            $con = new Conexion();
+            $db = $con->getConexion();
+
+            $p = sha1($passw);
+
+            $sql = "SELECT user, passw, admin FROM usuario WHERE user = '$user' AND passw = '$p'";
+            $res = $db->query($sql);
+
+            $data = $res->fetch();
+            
+            if ($data != false) {
+                return true;
+            } else {
+                return false;
+            }
+            
+
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    
+    /**
+     * addUser
+     *
+     * @param  mixed $user
+     * @param  mixed $passw
+     * @param  mixed $nombre
+     * @param  mixed $apellido
+     * @return bool
+     */
+    public function addUser($user, $passw, $nombre, $apellido) {
+
+        try {
+
+            $con = new Conexion();
+            $db = $con->getConexion();
+
+            $p = sha1($passw);
+
+            $sql = "INSERT into usuario (user, passw, nombre, apellido, tokens) values ('$user', '$p', '$nombre', '$apellido', 100)";
+            $res = $db->query($sql);
+
+            if ($res != false) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    
+    /**
+     * getUserByName
+     *
+     * @param  mixed $user
+     * @return void
+     */
+    public function getUserByName($user) {
+
+        try {
+
+            $con = new Conexion();
+            $db = $con->getConexion();
+
+
+            $sql = "SELECT * FROM usuario WHERE user = '$user'";
+            $res = $db->query($sql);
+            
+        }catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        return $res;
+    }
+
+
 }

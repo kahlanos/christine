@@ -61,7 +61,7 @@
         <?php
         $num = "One";
         foreach ($res as $i) {
-          echo "<div class='accordion accordion-flush w-100'>
+          echo "<div class='accordion accordion-flush h-50 w-100 mt-3'>
           <div class='accordion-item w-100'>
             
               <button class='accordion-button collapsed w-100 bg-dark text-light align-items-center rounded-5 text-center' type='button' data-mdb-toggle='collapse' data-mdb-target='#flush-collapseOne' aria-expanded=''false' aria-controls='flush-collapseOne'>

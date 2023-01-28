@@ -16,7 +16,7 @@ require("model/dbItem.php");
 require("model/dbComent.php");
 
 require("repositorio/conexion.php");
-require("repositorio/mail.php");
+// require("repositorio/mail.php");
 require('vendor/autoload.php');
 
 //Instancio el controlador
@@ -107,12 +107,3 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "login" && empty($array_ruta[1]))
 // }
 
 
-
-// //Decido la ruta en función de los elementos del array
-// if (isset($array_ruta[0]) && $array_ruta[0] == "show" && is_numeric($array_ruta[1])){   
-//     //Llamo al método ver pasándole la clave que me están pidiendo
-//     $controller->show($array_ruta[1]);
-// }else{
-//     //Llamo al método por defecto del controlador
-//     $controller->index();
-// }

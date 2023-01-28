@@ -46,15 +46,21 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "home" && empty($array_ruta[1])) 
     echo $controller->cargaSpiner();
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "login" && empty($array_ruta[1])) {
     $controller->cargaLogin();
+} else if (isset($array_ruta[0]) && $array_ruta[0] == "login" && $array_ruta[1] == "process") {
+    $controller->loginProcess();
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "signin" && empty($array_ruta[1])) {
     $controller->cargaSignin();
+} else if (isset($array_ruta[0]) && $array_ruta[0] == "signin" && $array_ruta[1] == "process") {
+    $controller->signinProcess();
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "profile" && empty($array_ruta[1])) {
     $controller->cargaProfile();
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "list" && empty($array_ruta[1])) {
     $controller->cargaList();
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "contact" && empty($array_ruta[1])) {
-    echo $controller->cargaContact();
-}
+    $controller->cargaContact();
+} else if (isset($array_ruta[0]) && $array_ruta[0] == "logout" && empty($array_ruta[1])) {
+    $controller->logout();
+} 
 //else if (isset($array_ruta[0]) && $array_ruta[0] == "cargaItemsAll" && empty($array_ruta[1])) {
 //     echo $controller->cargaItemsAll();
 // } 

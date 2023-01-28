@@ -12,7 +12,7 @@ class userController {
         $res = $db->getUser($_POST["user"], $_POST["passw"]);
         var_dump($res);
 
-        if ($res != false) {
+        if ($res) {
             $_SESSION["user"] = $_POST["user"];
             $_SESSION["passw"] = $_POST["passw"];
             

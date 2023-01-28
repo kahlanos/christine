@@ -5,7 +5,14 @@
 class DbUser {
 
 
-
+    
+    /**
+     * getUser
+     *
+     * @param  mixed $user
+     * @param  mixed $passw
+     * @return void
+     */
     public function getUser($user, $passw) {
 
         try {
@@ -20,15 +27,25 @@ class DbUser {
 
             $data = $res->fetch();
             
+            if ($data != false) {
+                return true;
+            } else {
+                return false;
+            }
             
-            return $data;
 
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
 
     }
-
+    
+    /**
+     * getUserById
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function getUserById($id) {
 
         $con = new Conexion();
@@ -44,7 +61,12 @@ class DbUser {
         return $res;
 
     }
-
+    
+    /**
+     * getUsers
+     *
+     * @return void
+     */
     public function getUsers() {
 
         try {
@@ -74,7 +96,13 @@ class DbUser {
         return json_encode($users);
         
     }
-
+    
+    /**
+     * deleteUser
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function deleteUser($id) {
 
         try {
@@ -90,7 +118,18 @@ class DbUser {
             echo "Error: " . $e->getMessage();
         }
     }
-
+    
+    /**
+     * addUser
+     *
+     * @param  mixed $user
+     * @param  mixed $passw
+     * @param  mixed $nombre
+     * @param  mixed $apellido
+     * @param  mixed $admin
+     * @param  mixed $tokens
+     * @return void
+     */
     public function addUser($user, $passw, $nombre, $apellido, $admin, $tokens) {
 
         try {
@@ -106,7 +145,19 @@ class DbUser {
         }
 
     }
-
+    
+    /**
+     * editUser
+     *
+     * @param  mixed $id
+     * @param  mixed $user
+     * @param  mixed $passw
+     * @param  mixed $nombre
+     * @param  mixed $apellido
+     * @param  mixed $admin
+     * @param  mixed $tokens
+     * @return void
+     */
     public function editUser($id, $user, $passw, $nombre, $apellido, $admin, $tokens) {
 
         try {
@@ -122,104 +173,7 @@ class DbUser {
             echo "Error: " . $e->getMessage();
         }
     }
-
-    public function getCategorias() {
-
-        try {
-
-            $con = new Conexion();
-            $db = $con->getConexion();
-
-            $sql = "SELECT * FROM categoria";
-            $res = $db->query($sql);
-
-            
-            return json_encode($res);
-
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-
-    }
-
-    // public function addProducto($p, $n) {
-    //     $_SESSION["carrito"] = [$p->getId() => $n];
-    // }
-
-    // public function getProducto ($id) {
-    //     $db = new PDO('mysql:host=localhost;dbname=practica12','root','');
-
-    //     $sql = "SELECT * FROM producto WHERE idProd = $id";
-    //     $res = $db->query($sql);
-
-    //     foreach($res as $p) {
-    //         $prod = new Producto($p["idProd"],$p["nombre"],$p["descripcion"],$p["peso"],$p["stock"]);
-    //     //     $prod->setId($p["idProd"]);
-    //     //     $prod->setNombre($p["nombre"]);
-    //     //     $prod->setDescripcion($p["descripcion"]);
-    //     //     $prod->setPeso($p["peso"]);
-    //     //     $prod->setStock($p["stock"]);
-    //     }
-
-        
-
-    //     return $prod;
-
-    // }
-
-    public function restaStock($id, $n) {
-        $db = new PDO('mysql:host=localhost;dbname=practica12','root','');
-
-        $sql = "UPDATE producto SET stock = stock-$n WHERE idProd = $id";
-        $res = $db->query($sql);
-
-        if ($res) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function addPedido($carrito, $correo) {
-        $db = new PDO('mysql:host=localhost;dbname=practica12','root','');
-
-        $sql = "SELECT idRes FROM restaurante WHERE correo = '$correo'";
-        $res = $db->query($sql);
-        $idRes = $res->fetch();
-        var_dump($idRes);
-        $fecha = new DateTime('now');
-        $fechaForm = $fecha->format('Y-m-d');
-        var_dump($fechaForm);
-        $sql = "INSERT into pedido(idRes,fecha) values(".$idRes['idRes'].",'$fechaForm')";
-        $db->query($sql);
-        $idPed = $db->lastInsertId();
-        $keys = array_keys($carrito);
-        
-        for ($i=0; $i < count($carrito); $i++) { 
-            var_dump($keys[$i]);
-            $cant = $carrito[$keys[$i]];
-            $c = (int)$cant;
-            var_dump($c);
-            echo $keys[$i]."<br>";
-            echo $c."<br>";
-            $sql = "INSERT into pedido_producto(idPed,idProd,cantidad) values(".$idPed.",".$keys[$i].",".$c.")";
-            $db->query($sql);
-        }
-        
-    }
-
-    public function getCategoria($idCat) {
-
-        $db = new PDO('mysql:host=localhost;dbname=practica12','root','');
-
-        $sql = "SELECT * FROM categoria WHERE idcat = '$idCat'";
-        $r = $db->query($sql);
-        $res = $r->fetch();
-
-        return $res;
-
-    }
-
+    
 
 
 }

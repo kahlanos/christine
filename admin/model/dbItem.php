@@ -1,7 +1,13 @@
 <?php
 
 class DbItem {
-
+    
+    /**
+     * getItems
+     *
+     * @param  mixed $last
+     * @return void
+     */
     public function getItems($last) {
 
         try {
@@ -41,7 +47,14 @@ class DbItem {
 
         return json_encode($items);
     }
-
+    
+    /**
+     * getItemsByName
+     *
+     * @param  mixed $last
+     * @param  mixed $query
+     * @return void
+     */
     public function getItemsByName($last, $query) {
 
         try {
@@ -83,7 +96,13 @@ class DbItem {
     }
 
 
-    //AÑADIR RESTO DE CAMPOS
+        
+    /**
+     * getItemById
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function getItemById($id) {
 
         try {
@@ -140,7 +159,22 @@ class DbItem {
 
     }
 
-    //AÑADIR RESTO DE CAMPOS
+        
+    /**
+     * editItem
+     *
+     * @param  mixed $id
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $categoria
+     * @param  mixed $precio
+     * @param  mixed $img1
+     * @param  mixed $img2
+     * @param  mixed $img3
+     * @param  mixed $latitud
+     * @param  mixed $longitud
+     * @return void
+     */
     public function editItem($id, $nombre, $descripcion, $categoria, $precio, $img1,$img2,$img3, $latitud, $longitud) { 
         
         try {
@@ -198,7 +232,13 @@ class DbItem {
             echo "Error: " . $e->getMessage();
         }
     }
-
+    
+    /**
+     * deleteItem
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function deleteItem($id) {
 
         try {
@@ -214,7 +254,21 @@ class DbItem {
             echo "Error: " . $e->getMessage();
         }
     }
-
+    
+    /**
+     * addItem
+     *
+     * @param  mixed $nombre
+     * @param  mixed $descripcion
+     * @param  mixed $categoria
+     * @param  mixed $precio
+     * @param  mixed $img1
+     * @param  mixed $img2
+     * @param  mixed $img3
+     * @param  mixed $latitud
+     * @param  mixed $longitud
+     * @return void
+     */
     public function addItem($nombre, $descripcion, $categoria, $precio, $img1,$img2,$img3, $latitud, $longitud) {
 
         try {

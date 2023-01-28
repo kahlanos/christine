@@ -56,9 +56,16 @@
         <i class="fas fa-search"></i>
       </span>
     </form>
-		<li class="nav-item"><a class="nav-link" href="login"> Log in </a></li>
-		<li class="nav-item"><a class="nav-link" href="signin"> Sign in </a></li>
-		<li class="nav-item"><a class="nav-link" href="profile"> Profile </a></li>
+
+	<?php if (isset($_SESSION['userNormal'])) {
+		echo "<li class='nav-item'><a class='nav-link' href='profile'> Profile </a></li>";
+		echo "<li class='nav-item'><a class='nav-link' href='logout'> Log out </a></li>";
+		
+	} else {
+		echo "<li class='nav-item'><a class='nav-link' href='login'> Log in </a></li>";
+		echo "<li class='nav-item'><a class='nav-link' href='signin'> Sign in </a></li>";
+	}
+	?>		
 	</ul>
 
   </div> <!-- navbar-collapse.// -->
